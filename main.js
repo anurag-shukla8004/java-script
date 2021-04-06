@@ -5,8 +5,11 @@ val=String(new Date());
 
 const a=2;
 
-if(a>1){
+if(a>4){
   document.write(true)
+}
+else{
+  document.write(false);
 }
 
 console.log(val)
