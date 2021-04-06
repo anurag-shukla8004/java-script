@@ -5,7 +5,7 @@ val=String(new Date());
 
 const a=2;
 
-document.write(typeof a);
+document.write(Date a);
 
 console.log(val)
 console.log(typeof val);
