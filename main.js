@@ -5,7 +5,9 @@ val=String(new Date());
 
 const a=2;
 
-document.write(Date a);
+if(a>1){
+  document.write(true)
+}
 
 console.log(val)
 console.log(typeof val);
