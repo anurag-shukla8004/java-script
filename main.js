@@ -12,7 +12,7 @@ else{
   document.write(false)
 }
 
-console
+
 
 console.log(val)
 console.log(typeof val);
