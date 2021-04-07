@@ -9,7 +9,7 @@ if(a>4){
   document.write(true)
 }
 else{
-  document.write(false);
+  document.write(false)
 }
 
 console.log(val)
