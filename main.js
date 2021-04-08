@@ -1,19 +1,6 @@
-let val;
-
-val = "2";
-val=String(new Date());
-
-const a=2;
-
-if(a>4){
-  document.write(true)
-}
-else{
-  document.write(false)
-}
+var a=2;
+var b = 14;
+var c = b ** a;
 
 
-
-console.log(val)
-console.log(typeof val);
-console.log(val.length);
+document.write(c);
