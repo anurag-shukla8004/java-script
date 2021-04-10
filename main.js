@@ -1,5 +1,5 @@
-for(var a = 1; a <= 10; a++){
-  if(a%2==0){
-    document.write(a + "<br>");
-  }
-}
+var student = [
+  {name : 'ram' , age : 18},
+  {name : 'jon' , age : 20},
+  {name : 'pit' , age : 21},
+];
