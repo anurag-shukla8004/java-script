@@ -8,5 +8,5 @@ var student = [
 console.log(student);
 
 for(var a = 0; a<student.length ;a++){
-  document.write(student[a] + "<br");
+  document.write(student[a].name + "<br");
 }
