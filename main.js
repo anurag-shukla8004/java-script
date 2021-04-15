@@ -1,5 +1,5 @@
 var element;
 
-element = document.getElementsByClassName("class")
+element = document.getElementsByClassName("id")
 
 console.log(element);
