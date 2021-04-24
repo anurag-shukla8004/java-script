@@ -27,4 +27,4 @@ let rep = document.getElementById('this');
 
 rep.replaceChild(element, document.getElementById('myid'));
 
-console.log(rep );
+console.log(rep);
