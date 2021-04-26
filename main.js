@@ -1,30 +1,10 @@
-console.log('this is tute 16');
-
 let element = document.createElement('li');
 
-element.className = 'new-list';
-element.id = 'new-id';
-element.innerText = 'I am web dev'
+// add a class and id in the element
 
-let ul = document.querySelector('ul.this');
-ul.appendChild(element)
-console.log(ul);
+element.className = 'childul';
+element.id = 'childLi';
 
-console.log(element);
+let ul = 
 
-
-let elem2 = document.createElement('h3');
-elem2.id = 'heading';
-elem2.className = 'heading';
-elem2.innerText = 'haii every buddy is present' ;
-
-let cont = document.createTextNode('I will be go to my roomś');
-
-elem2.appendChild(cont)
-
-
-let rep = document.getElementById('this');
-
-rep.replaceChild(element, document.getElementById('myid'));
-
-console.log(rep);
+console.log(element)
