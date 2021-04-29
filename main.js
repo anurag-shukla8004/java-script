@@ -1,23 +1,25 @@
-let element = document.createElement('li');
+let fome = document.querySelector('#task-fome');
+let taskList = document.querySelector('.collection');
+let clearBtn = document.querySelector('clear-tasks');
+let filter = document.querySelector('#filter');
+let taskInput = document.queryselector('#task');
 
 
-//add a class name and id 
-element.className = 'childul';
-element.id = 'cratedLi';
-element.setAttribute('title','mytitle');
-element.innerText = 'this is my word';
+// Load all event lisnear
+loadEventListeners()
+  // Add task event
+
+  function loadEventListeners() {
+    fome.addEventListener('submit', addTask);
+  }
+
+ function addtTask(e) {
+      if(taskInput.value=== ''){
+         alert('enter the content');
+      }
+
+      e.preventDefault();
+  }
 
 
-ul = document.querySelector('ul.this');
-
-ul.appendChild(element)
-
-
-let elem2 = document.createElement('h3')
-
-elem2.className = 'elem2';
-elem2.id = 'elem2';
-elem2.innerText = 'topic ans subject';
-
-element.replaceWith(elem2);
 
