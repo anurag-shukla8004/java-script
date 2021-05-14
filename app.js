@@ -1,59 +1,57 @@
-// Listen for submit
-document.getElementById('loan-form').addEventListener('submit', calculateResults);
+//Book Constructor
+function Book(title, author, isbn) {
+  this.title = title;
+  this.author = author;
+  this.isbn = isbn;
+}
+//UI Constructor
+function UI() {}
 
-// Calculate Results
-function calculateResults(e){
-  console.log('Calculating...');
-  // UI Vars
-  const amount = document.getElementById('amount');
-  const interest = document.getElementById('interest');
-  const years = document.getElementById('years');
-  const monthlyPayment = document.getElementById('monthly-payment');
-  const totalPayment = document.getElementById('total-payment');
-  const totalInterest = document.getElementById('total-interest');
 
-  const principal = parseFloat(amount.value);
-  const calculatedInterest = parseFloat(interest.value) / 100 / 12;
-  const calculatedPayments = parseFloat(years.value) * 12;
 
-  // Compute monthly payment
-  const x = Math.pow(1 + calculatedInterest, calculatedPayments);
-  const monthly = (principal*x*calculatedInterest)/(x-1);
+//Add Book To List
+UI.prototype.addBookToList = function(book){
+  const list = document.getElementById('book-list');
+  // Creat lr element
+  const row = document.createElement('tr');
+  //Insert cols
+  row.innerHTML = `
+  <td>${book.title}</td>
+  <td>${book.author}</td>
+  <td>${book.isbn}</td>
+  <td><a href="#" class="delete">X</a></td>
+  `
+  list.appendChild(row);
+} 
 
-  if(isFinite(monthly)) {
-    monthlyPayment.value = monthly.toFixed(2);
-    totalPayment.value = (monthly * calculatedPayments).toFixed(2);
-    totalInterest.value = ((monthly * calculatedPayments)-principal).toFixed(2);
-  } else {
-    showError('Please check your numbers');
-  }
+// Clear Field
+UI.prototype.clearFields = function() {
 
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('isbn').value = '';
+}
+
+
+// Event Listenears
+document.getElementById('book-form').addEventListener('submit', function(e){
+
+  //Get form value
+  const title = document.getElementById('title').value,
+        author = document.getElementById('author').value,
+        isbn = document.getElementById('isbn').value;
+
+   //Instantiate book
+   
+   const book = new Book(title, author, isbn);
+
+   //Instantiate UI
+   const ui = new UI()
+
+   // Add book to list
+   ui.addBookToList(book);
+
+   // Clear Field
+   ui.clearFields();
   e.preventDefault();
-}
-
-// Show Error
-function showError(error){
-  // Create a div
-  const errorDiv = document.createElement('div');
-
-  // Get elements
-  const card = document.querySelector('.card');
-  const heading = document.querySelector('.heading');
-
-  // Add class
-  errorDiv.className = 'alert alert-danger';
-
-  // Create text node and append to div
-  errorDiv.appendChild(document.createTextNode(error));
-
-  // Insert error above heading
-  card.insertBefore(errorDiv, heading);
-
-  // Clear error after 3 seconds
-  setTimeout(clearError, 3000);
-}
-
-// Clear error
-function clearError(){
-  document.querySelector('.alert').remove();
-}
+})
