@@ -1,57 +1,27 @@
-//Book Constructor
-function Book(title, author, isbn) {
-  this.title = title;
-  this.author = author;
-  this.isbn = isbn;
+document.getElementById('button').addEventListener('click', loadData);
+
+function loadData() {
+  
+  // Create an xhr object
+  const xhr = new XMLHttpRequest();
+  
+  // OPE
+  xhr.open('GET', 'text.txt', true);
+
+  // xhr.onload = function(){
+  //   if(this.status === 200){
+  //     console.log(this.responseText);
+  //   }
+  // }
+
+  xhr.onreadystatechange = function() {
+
+    if(this.status === 200 && this.readyState === 4){
+      console.log(this.responseText);
+    }
+  }
+
+  xhr.send();
+
+
 }
-//UI Constructor
-function UI() {}
-
-
-
-//Add Book To List
-UI.prototype.addBookToList = function(book){
-  const list = document.getElementById('book-list');
-  // Creat lr element
-  const row = document.createElement('tr');
-  //Insert cols
-  row.innerHTML = `
-  <td>${book.title}</td>
-  <td>${book.author}</td>
-  <td>${book.isbn}</td>
-  <td><a href="#" class="delete">X</a></td>
-  `
-  list.appendChild(row);
-} 
-
-// Clear Field
-UI.prototype.clearFields = function() {
-
-  document.getElementById('title').value = '';
-  document.getElementById('author').value = '';
-  document.getElementById('isbn').value = '';
-}
-
-
-// Event Listenears
-document.getElementById('book-form').addEventListener('submit', function(e){
-
-  //Get form value
-  const title = document.getElementById('title').value,
-        author = document.getElementById('author').value,
-        isbn = document.getElementById('isbn').value;
-
-   //Instantiate book
-   
-   const book = new Book(title, author, isbn);
-
-   //Instantiate UI
-   const ui = new UI()
-
-   // Add book to list
-   ui.addBookToList(book);
-
-   // Clear Field
-   ui.clearFields();
-  e.preventDefault();
-})
