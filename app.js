@@ -1,27 +1,34 @@
-document.getElementById('button').addEventListener('click', loadData);
+const posts = [
+  {title: 'Post One', body: 'This is post one'},
+  {title: 'Post Two', body: 'This is post two'}
+];
 
-function loadData() {
-  
-  // Create an xhr object
-  const xhr = new XMLHttpRequest();
-  
-  // OPE
-  xhr.open('GET', 'text.txt', true);
+function createPost(post){
 
-  // xhr.onload = function(){
-  //   if(this.status === 200){
-  //     console.log(this.responseText);
-  //   }
-  // }
+  return new Promise(function(resolve, reject){
 
-  xhr.onreadystatechange = function() {
+    setTimeout(function(){
+      posts.push(post);
+      resolve();
+    },2000);
 
-    if(this.status === 200 && this.readyState === 4){
-      console.log(this.responseText);
-    }
-  }
-
-  xhr.send();
-
+  });
 
 }
+
+function getPosts(){
+
+  setTimeout(function(){
+    let output = '';
+
+    posts.forEach(function(post){
+      output += `<li>${post.title}</li>`;
+    });
+
+   
+    document.body.innerHTML = output;
+  },2000)
+
+  
+}
+createPost({title: 'Post three', body: 'This is post three'}).then(getPosts)
