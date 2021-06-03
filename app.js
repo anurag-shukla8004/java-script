@@ -1,34 +1,9 @@
-const posts = [
-  {title: 'Post One', body: 'This is post one'},
-  {title: 'Post Two', body: 'This is post two'}
-];
-
-function createPost(post){
-
-  return new Promise(function(resolve, reject){
-
-    setTimeout(function(){
-      posts.push(post);
-      resolve();
-    },2000);
-
-  });
-
+let name = {
+  firstname: "anurag",
+  secondname: "shukla",
+  printfull: function(){
+   console.log(this.firstname + " " + this.secondname);
+  }
 }
 
-function getPosts(){
-
-  setTimeout(function(){
-    let output = '';
-
-    posts.forEach(function(post){
-      output += `<li>${post.title}</li>`;
-    });
-
-   
-    document.body.innerHTML = output;
-  },2000)
-
-  
-}
-createPost({title: 'Post three', body: 'This is post three'}).then(getPosts)
+name.printfull();
